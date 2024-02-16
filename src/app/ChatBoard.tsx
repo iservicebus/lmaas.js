@@ -5,6 +5,8 @@ import { Header } from '../components/Header'
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import {makePostCall} from "./ChatAction";
+
 
 export const chatSchema = z.object({
   id: z.string(),  
@@ -33,6 +35,7 @@ function generateRandomKey(): string {
     };
 
   const onChatSubmit = async (data: ChatFields) => {
+    makePostCall()
     await appendMessage(data);
   }
   
