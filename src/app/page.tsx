@@ -6,12 +6,16 @@ import  ChatBoard  from './ChatBoard';
 export default function Home() {
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Header
+    <main className="h-full dark:bg-gray-900">
+      <Header 
             title="Cohesionet"
             description="Cohesionet"
       />
-      <ChatBoard/>
+
+    <div className ="relative min-h-0 min-w-0 py-4">  
+
+    <ChatBoard/>
+   </div>
   </main>
   );
 }

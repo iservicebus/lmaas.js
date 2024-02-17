@@ -9,7 +9,7 @@ export const Header = ({
 }: HeaderProps) => {
   return (
 
-<header className="fixed top-0 left-0 right-0 bg-white shadow px-4 py-2 z-50">
+<header className="fixed top-0 left-0 right-0 bg-white shadow px-4 py-2 z-50  ">
   <nav className="container mx-auto flex justify-between items-center">
     <a href="/" className="font-bold text-xl">{title}</a>
     <ul className="hidden lg:flex space-x-4">
