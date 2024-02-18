@@ -6,11 +6,8 @@
  * Represents a single message in a conversation.
  */
 export type ChatText = {
-    id?: string;
-    init_time?: string;
-    res_time?: string;
     role?: string;
-    content: string;
+    content: any;
     generated?: string;
 };
 

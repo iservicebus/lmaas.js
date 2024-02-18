@@ -9,6 +9,8 @@ export type ChatCompletionReq = {
     top_p?: number;
     stop?: (string | Array<string> | null);
     model?: (string | null);
+    id?: string;
+    req_time?: string;
     text_list: ChatTextList;
 };
 

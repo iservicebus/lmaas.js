@@ -1,12 +1,13 @@
+'use client'
 import { Header } from '../components/Header'
 
-import  ChatBoard  from './ChatBoard';
-
+//import  ChatBoard  from './ChatBoard';
+import {ChatBoard} from '../components/ChatBoard'
 
 export default function Home() {
 
   return (
-    <main className="h-full dark:bg-gray-900">
+    <main className="h-full ">
       <Header 
             title="Cohesionet"
             description="Cohesionet"

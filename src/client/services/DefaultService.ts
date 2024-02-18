@@ -12,14 +12,14 @@ export class DefaultService {
      * @returns any Successful Response
      * @throws ApiError
      */
-    public static chatCompletionChatCompletionPost({
+    public static chatCompletionChatCompletionPost(host_url: string, {
         requestBody,
     }: {
         requestBody: ChatCompletionReq,
     }): CancelablePromise<any> {
         return __request(OpenAPI, {
             method: 'POST',
-            url: 'http://localhost:8000/chat/completion',
+            url: host_url+'/chat/completion',
             body: requestBody,
             mediaType: 'application/json',
             errors: {
