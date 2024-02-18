@@ -1,7 +1,6 @@
 'use client'
 import { Header } from '../components/Header'
 
-//import  ChatBoard  from './ChatBoard';
 import {ChatBoard} from '../components/ChatBoard'
 
 export default function Home() {
