@@ -71,7 +71,7 @@ export const convert_ui_message = (fields: ChatFields, res: any)=> {
 export async function makePostCall(fields: ChatFields) {
   try {
     const chatReq = convert_api_inputs(fields);
-    const response = await fetch("/apis", {
+    const response = await fetch("/api", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

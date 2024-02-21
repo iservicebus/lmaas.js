@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { IchatMessage, ChatSchema, ChatFields, makePostCall } from "./ChatAction";
 
@@ -10,12 +11,32 @@ import React, { useState } from 'react';
 import ChatMessage from './ChatMessage';
 
 
+interface ProgressBarProps {
+  isLoading: boolean;
+}
+
+const ProgressBar: React.FC<ProgressBarProps> = ({ isLoading }) => {
+
+  if (!isLoading) {
+      return null;
+    }
+
+    return (
+    <div className="fixed top-0 left-0 w-full h-full bg-blue-500 opacity-50 flex justify-center items-center z-50" >
+      <div className="loader">LMaaS is currently processing your request</div>
+    </div>
+  );
+};
+
 function generateRandomKey(): string {
   return Math.random().toString(36).substring(2, 15); // Generate random alphanumeric string
 }
 
+
+
 export const ChatBoard = () => {
   const [messages, setMessages] = useState<[IchatMessage]>([]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const appendMessage = (message: IchatMessage) => {
     message.id = generateRandomKey();
@@ -24,11 +45,6 @@ export const ChatBoard = () => {
 
   };
 
-  const onChatSubmit = async (fields: ChatFields) => {
-    const res = await makePostCall(fields);
-    appendMessage(res);
-  }
-
   const form = useForm<ChatFields>({
     resolver: zodResolver(ChatSchema),
     defaultValues: {
@@ -36,6 +52,20 @@ export const ChatBoard = () => {
       content: "",
     },
   });
+
+  const onChatSubmit = async (fields: ChatFields) => {
+    setIsSubmitted(true);
+    form.reset();
+    const res = await makePostCall(fields);
+    appendMessage(res);
+
+   // Set this state to trigger form reset conditionally
+    // Clear form data after a short delay to allow submission success UI
+    setTimeout(() => {
+      setIsSubmitted(false); // Reset the submitted state to hide success UI
+    }, 1000); // Adjust delay as needed
+
+  }
 
   return (
     <div>
@@ -53,8 +83,8 @@ export const ChatBoard = () => {
       </div>
 
       <div className="fixed bottom-0 left-0 right-0  border-t border-gray-300 ">
-
-        <form onSubmit={form.handleSubmit((data) => onChatSubmit(data))} className="w-full">
+      <ProgressBar isLoading={isSubmitted} />
+        <form onSubmit={form.handleSubmit((data) => onChatSubmit(data))} className="w-full bg-gray-700">
 
           <div className="mb-4 flex items-center p-1">
             <label htmlFor="name" className="w-40 text-sm font-bold mx-1">
@@ -76,7 +106,7 @@ export const ChatBoard = () => {
                 style={{ minHeight: "2.5rem", maxHeight: "10em" }} // Added inline styles for the textarea
               ></textarea>
             </div>
-            <button className="btn mx-1 my-1 h-[2.4rem] self-end rounded-lg bg-transparent p-1 px-[0.7rem] text-gray-400 disabled:opacity-60 enabled:hover:text-gray-700 dark:disabled:opacity-40 enabled:dark:hover:text-gray-100" type="submit" disabled="">
+            <button type="submit" disabled={isSubmitted}  className="btn mx-1 my-1 h-[2.4rem] self-end rounded-lg bg-transparent p-1 px-[0.7rem] text-gray-400 disabled:opacity-60 enabled:hover:text-gray-700 dark:disabled:opacity-40 enabled:dark:hover:text-gray-100" type="submit" disabled="">
               <svg viewBox="0 0 32 32" width="1.2em" height="1.2em">
                 <path fill="currentColor" d="M27.71 4.29a1 1 0 0 0-1.05-.23l-22 8a1 1 0 0 0 0 1.87l8.59 3.43L19.59 11L21 12.41l-6.37 6.37l3.44 8.59A1 1 0 0 0 19 28a1 1 0 0 0 .92-.66l8-22a1 1 0 0 0-.21-1.05Z" />
               </svg>

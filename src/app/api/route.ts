@@ -9,33 +9,14 @@ import { DefaultService } from "../../client/index";
 import { ChatCompletionReq, ChatText, ChatTextList } from "../../client/index";
 
 
-const userText: ChatText={
-    role: "user",
-    content: "Hello, how can I help you?",
-}
 
-const sysText: ChatText={
-    role: "system",
-    content: "Hello, how can I help you?",
-}
-
-const chatList: ChatTextList = {
-    messages: [userText, sysText]
-}
-
-const chatReq: ChatCompletionReq ={
-    text_list: chatList
-}
-
-
-
-
+ const lmaas_host = process.env.LMAAS_HOST;
 
 async function handleAPI(chatReq: ChatCompletionReq) {
     console.log("call handleAPI");
 
     try {
-        const response = await DefaultService.chatCompletionChatCompletionPost("http://localhost:8000", {
+        const response = await DefaultService.chatCompletionChatCompletionPost(lmaas_host, {
             requestBody: chatReq
         });
         return response;
@@ -46,7 +27,7 @@ async function handleAPI(chatReq: ChatCompletionReq) {
 
 
 export  async function GET (request: NextRequest){
-    const greeting = "Hello World!!"
+    const greeting = "This is for Post API only!"
     const json = {
         greeting
     };
