@@ -1,5 +1,5 @@
 
-# GenAI App Powered by LMaaS
+# LMaaS.js - A GenAI App Powered by LMaaS
 
 LMaaS.js is a GenAI chat application, serving as a reference implementation to demonstrate how to utilize Language Model as a Service (LMaaS) for building GenAI applications. LMaaS.js is constructed with Next.js and TypeScript, leveraging OpenAPIs provided by Language as a Service (LMaaS).
 
