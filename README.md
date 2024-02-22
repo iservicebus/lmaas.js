@@ -1,17 +1,17 @@
 
-# LMaaS.js:  Your Conversational Companion - Chat App Powered by LMaaS
-Tired of text-based interfaces and longing for a more natural way to interact with technology? Introducing your new conversational companion: a cutting-edge chat web application built with Next.js and TypeScript, powered by OpenAPIs provided by Language as a Service (LMaaS).
+# GenAI App Powered by LMaaS
 
-This innovative app doesn't just display text; it understands it. Utilizing advanced LMaaS technology, it engages you in meaningful conversations, answering your questions, fulfilling your requests, and even offering creative insights. Whether you need information, assistance, or simply a friendly chat, it's always there to listen and respond.
+LMaaS.js is a GenAI chat application, serving as a reference implementation to demonstrate how to utilize Language Model as a Service (LMaaS) for building GenAI applications. LMaaS.js is constructed with Next.js and TypeScript, leveraging OpenAPIs provided by Language as a Service (LMaaS).
 
-Built with the modern framework of Next.js and the power of TypeScript, this app offers a seamless and secure experience. Imagine:
+This innovative application doesn't merely display text; it comprehends it. Harnessing advanced LMaaS technology, it engages users in meaningful conversations, answering questions, fulfilling requests, and even offering creative insights. Whether you seek information, assistance, or simply a friendly chat, it's always available to listen and respond.
 
-- **Natural Language Conversations**: Ask questions, express needs, or simply have a chat - the app understands your intent and responds accordingly.
-- **LMaaS-Powered Responses**: Get accurate, relevant, and engaging responses tailored to your specific needs and context.
-- **Next.js Efficiency**: Enjoy a smooth, dynamic, and secure user experience thanks to Next.js's performance and architecture.
+This application provides a seamless and secure experience, enabling:
 
+Natural Language Conversations: Ask questions, express needs, or simply engage in conversation—the application comprehends your intent and responds accordingly.
+LMaaS-Powered Responses: Receive accurate, relevant, and engaging responses tailored to your specific needs and context.
 
-Let us start
+Let us run this app on your own machine
+
 
 ###Prerequisites:
 
