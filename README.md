@@ -13,13 +13,13 @@ LMaaS-Powered Responses: Receive accurate, relevant, and engaging responses tail
 Let us run this app on your own machine
 
 
-###Prerequisites:
+### Prerequisites:
 
 - **LMaaS**: This app requires LMaaS to be running. If you haven't already, install it following the instructions at https://github.com/iservicebus/lmaas.git.
   
 - **Node.js**: Ensure you have Node.js installed on your local machine. You can download it from https://nodejs.org/.
 
-###Starting the App:
+### Starting the App:
 
 #### 1. Configuration:
 If LMaaS is hosted on a different server:
